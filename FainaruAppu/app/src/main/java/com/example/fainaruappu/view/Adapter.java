@@ -1,6 +1,6 @@
 package com.example.fainaruappu.view;
 
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,47 +14,52 @@ import com.example.fainaruappu.R;
 import com.example.fainaruappu.presenter.IRecyclerPresenter;
 import com.example.fainaruappu.presenter.MainPresenter;
 
+import java.util.List;
+
+
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     private IRecyclerPresenter iRecyclerPresenter;
-    private MainPresenter presenter = new MainPresenter();
+    private static MainPresenter presenter = new MainPresenter();
+    private static List<Integer> list = presenter.getList();
 
     public Adapter(IRecyclerPresenter iRecyclerPresenter) {
         this.iRecyclerPresenter = iRecyclerPresenter;
     }
 
-
     @NonNull
     @Override
-    public Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final Adapter.MyViewHolder holder, final int position) {
-        holder.position = position;
+
+        holder.setText(String.valueOf(list.get(position)));
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.onItemClick(position);
-                Log.d("POSITION", String.valueOf(position));
-                iRecyclerPresenter.bindView(holder);
+                list = iRecyclerPresenter.bindView(holder, position);
+                Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                intent.putExtra(MainActivity.EXTRA_POS, position);
+                view.getContext().startActivity(intent);
             }
         });
-
     }
+
 
     @Override
     public int getItemCount() {
         return iRecyclerPresenter.getItemCount();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder implements IViewHolder {
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements IViewHolder {
 
         private ImageView imageView;
         private TextView textView;
-        private int position;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,11 +70,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         @Override
         public void setText(String count) {
             textView.setText(count);
-        }
-
-        @Override
-        public int getPos() {
-            return position;
         }
     }
 }

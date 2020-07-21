@@ -5,6 +5,5 @@ import moxy.viewstate.strategy.AddToEndStrategy;
 import moxy.viewstate.strategy.StateStrategyType;
 
 @StateStrategyType(AddToEndStrategy.class)
-public interface IViewHolder extends MvpView {
-    void setText(String text);
+public interface DetailView extends MvpView {
 }

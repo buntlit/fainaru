@@ -5,8 +5,11 @@ import java.util.List;
 
 public class Model {
 
+    List<Integer> count;
 
-    private List<Integer> count = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    public Model(){
+        count = Arrays.asList(0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+    }
 
     public List<Integer> getCount() {
         return count;
