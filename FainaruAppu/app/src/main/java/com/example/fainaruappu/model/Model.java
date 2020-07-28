@@ -1,14 +1,18 @@
 package com.example.fainaruappu.model;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
 
     List<Integer> count;
 
+
     public Model(){
-        count = Arrays.asList(0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+        count = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            count.add(0);
+        }
     }
 
     public List<Integer> getCount() {
@@ -18,5 +22,6 @@ public class Model {
     public void setCount(List count) {
         this.count = count;
     }
+
 }
 
