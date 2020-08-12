@@ -16,6 +16,7 @@ import static com.example.fainaruappu.view.MainActivity.EXTRA_POS;
 import static com.example.fainaruappu.view.MainActivity.EXTRA_URL;
 
 public class DetailActivity extends MvpAppCompatActivity implements DetailView {
+
     int itemPosition;
     String url;
     GlideLoader glideLoader;
@@ -28,6 +29,7 @@ public class DetailActivity extends MvpAppCompatActivity implements DetailView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         getExtra();
@@ -36,10 +38,13 @@ public class DetailActivity extends MvpAppCompatActivity implements DetailView {
         glideLoader = new GlideLoader(this);
         detailPresenter.logging(itemPosition);
         glideLoader.loadImage(url, imageView);
+
     }
 
     public void getExtra(){
+
         itemPosition = (int) getIntent().getExtras().get(EXTRA_POS)+1;
         url = (String) getIntent().getExtras().get(EXTRA_URL);
+
     }
 }

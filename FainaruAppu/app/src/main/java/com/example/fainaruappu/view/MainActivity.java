@@ -34,18 +34,22 @@ public class MainActivity extends MvpAppCompatActivity implements IViewHolder {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initRecyclerView();
+
     }
 
 
     private void initRecyclerView() {
+
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new Adapter(this, presenter.getRecyclerPresenter());
         recyclerView.setAdapter(adapter);
+
     }
 
     @Override
@@ -60,6 +64,8 @@ public class MainActivity extends MvpAppCompatActivity implements IViewHolder {
 
     @Override
     public void updateRecyclerView() {
+
         adapter.notifyDataSetChanged();
+
     }
 }

@@ -9,7 +9,6 @@ import moxy.MvpPresenter;
 
 public class DetailPresenter extends MvpPresenter<DetailView> {
 
-    private Model model = new Model();
     private static final String TAG = "DETAIL PRESENTER";
 
     @Override

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "462832447510",
+    "firebase_url": "https://fainaruappu.firebaseio.com",
+    "project_id": "fainaruappu",
+    "storage_bucket": "fainaruappu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462832447510:android:4e48b6d81849253dee4537",
+        "android_client_info": {
+          "package_name": "com.example.fainaruappu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462832447510-71s61o3c81nqv2rbnifgd1jrg8b37la7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKj8kB7ao1kwPL8oL_Sa81KAURv6q6TqY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462832447510-71s61o3c81nqv2rbnifgd1jrg8b37la7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

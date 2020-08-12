@@ -6,21 +6,28 @@ import java.util.List;
 public class Model {
 
     List<Integer> count;
+    List<String> url;
 
 
     public Model(){
         count = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            count.add(0);
-        }
+        url = new ArrayList<>();
+    }
+
+    public void setCount(List<Integer> count) {
+        this.count = count;
+    }
+
+    public List<String> getUrl() {
+        return url;
+    }
+
+    public void setUrl(List<String> url) {
+        this.url = url;
     }
 
     public List<Integer> getCount() {
         return count;
-    }
-
-    public void setCount(List count) {
-        this.count = count;
     }
 
 }
